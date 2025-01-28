@@ -3,16 +3,19 @@ import './Login.css';
 import {validateInput} from "../utils/validateInput";
 import {useState} from "react";
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [formData, setFormData] = useState({email: "", password: ""});
     const [errors, setErrors] = useState({});
 
-
-    const formErrors = validateInput(email, password);
+    const handleInputChange = (field, value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [field]: value,
+        }));
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+        const formErrors = validateInput(formData.email, formData.password);
         if(Object.keys(formErrors).length > 0){
             console.log(formErrors);
             setErrors(formErrors);
@@ -33,8 +36,8 @@ function Login() {
                         <Form.Control
                             type="email"
                             placeholder="Enter email"
-                            onChange={(event) => setEmail(event.target.value)}
-                            value={email}
+                            onChange={(event) => handleInputChange("email", event.target.value)}
+                            value={formData.email}
                             isInvalid={!!errors.email}
                         />
 
@@ -48,8 +51,8 @@ function Login() {
                         <Form.Control
                             type="password"
                             placeholder="Password"
-                            onChange={(event) => setPassword(event.target.value)}
-                            value={password}
+                            onChange={(event) => handleInputChange("password", event.target.value)}
+                            value={formData.password}
                             isInvalid={!!errors.password}
                         />
                         <Form.Control.Feedback type="invalid">
