@@ -15,7 +15,7 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const formErrors = validateInput(formData.email, formData.password);
+        const formErrors = validateInput(user, "login");
         if(Object.keys(formErrors).length > 0){
             console.log(formErrors);
             setErrors(formErrors);
