@@ -1,7 +1,8 @@
 import {Button, Form} from "react-bootstrap";
-import './Login.css';
 import {validateInput} from "../utils/validateInput";
 import {useEffect, useRef, useState} from "react";
+import {NamedLink} from "../routes/NamedLink";
+import handleInputChange from "../utils/handleInputChange";
 
 function Login() {
     const userRef = useRef();
@@ -9,12 +10,7 @@ function Login() {
     const [user, setUser] = useState({email: "", password: ""});
     const [errors, setErrors] = useState({});
 
-    const handleInputChange = (field, value) => {
-        setUser((prevData) => ({
-            ...prevData,
-            [field]: value,
-        }));
-    };
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -48,7 +44,7 @@ function Login() {
                             type="email"
                             ref={userRef}
                             placeholder="Enter email"
-                            onChange={(event) => handleInputChange("email", event.target.value)}
+                            onChange={(event) => handleInputChange("email", event.target.value, setUser)}
                             value={user.email}
                             isInvalid={!!errors.email}
                         />
@@ -63,7 +59,7 @@ function Login() {
                         <Form.Control
                             type="password"
                             placeholder="Password"
-                            onChange={(event) => handleInputChange("password", event.target.value)}
+                            onChange={(event) => handleInputChange("password", event.target.value, setUser)}
                             value={user.password}
                             isInvalid={!!errors.password}
                         />
@@ -76,7 +72,7 @@ function Login() {
                 </Form>
                 <p>
                     Need an Account?
-                    <a href="#"> Sign Up</a>
+                    <NamedLink routeName='SIGNUP'> Sign Up</NamedLink>
                 </p>
             </div>
         </div>
