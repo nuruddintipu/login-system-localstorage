@@ -1,13 +1,16 @@
 import {Button, Form} from "react-bootstrap";
 import './Login.css';
 import {validateInput} from "../utils/validateInput";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+
 function Login() {
-    const [formData, setFormData] = useState({email: "", password: ""});
+    const userRef = useRef();
+
+    const [user, setUser] = useState({email: "", password: ""});
     const [errors, setErrors] = useState({});
 
     const handleInputChange = (field, value) => {
-        setFormData((prevData) => ({
+        setUser((prevData) => ({
             ...prevData,
             [field]: value,
         }));
@@ -21,9 +24,17 @@ function Login() {
             setErrors(formErrors);
             return;
         }
-
+        console.log(user);
         setErrors({});
-    }
+    };
+
+    useEffect(() => {
+        userRef.current.focus();
+    }, [])
+
+    useEffect(() => {
+        setErrors({});
+    }, [user])
 
     return (
         <div className="login-wrapper">
@@ -35,9 +46,10 @@ function Login() {
                         <Form.Label column="lg">Email Address</Form.Label>
                         <Form.Control
                             type="email"
+                            ref={userRef}
                             placeholder="Enter email"
                             onChange={(event) => handleInputChange("email", event.target.value)}
-                            value={formData.email}
+                            value={user.email}
                             isInvalid={!!errors.email}
                         />
 
@@ -52,7 +64,7 @@ function Login() {
                             type="password"
                             placeholder="Password"
                             onChange={(event) => handleInputChange("password", event.target.value)}
-                            value={formData.password}
+                            value={user.password}
                             isInvalid={!!errors.password}
                         />
                         <Form.Control.Feedback type="invalid">
@@ -62,6 +74,10 @@ function Login() {
 
                     <Button variant="primary" type="submit" className="login-button">Login</Button>
                 </Form>
+                <p>
+                    Need an Account?
+                    <a href="#"> Sign Up</a>
+                </p>
             </div>
         </div>
     );
