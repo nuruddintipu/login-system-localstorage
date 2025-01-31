@@ -1,5 +1,6 @@
 import {Container} from "react-bootstrap";
 import {NamedLink} from "../routes/NamedLink";
+import LogoutButton from "../components/LogoutButton";
 
 function HomePage() {
     return (
@@ -11,6 +12,9 @@ function HomePage() {
             <div>Go to
                 <NamedLink routeName='SAMPLE_PAGE_TWO'> Sample Page 2</NamedLink>
             </div>
+            <LogoutButton />
+
+
         </Container>
     );
 }

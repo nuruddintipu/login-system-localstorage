@@ -2,7 +2,6 @@ const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 export const validateInput = (formData, type = 'login') => {
     const errors = {};
-    console.log("sdasd");
     if(!formData.email) {
         console.log('email is required');
         errors.email = 'Email is required';
