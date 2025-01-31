@@ -17,14 +17,31 @@ include 'userService.php';
 $response =  ['success' => false, 'message' => 'Invalid request'];
 
 if(isset($data['action'])) {
-    if($data['action'] == 'register') {
-        $email = isset($data['email']) ? $data['email'] : "";
-        $password = isset($data['password']) ? $data['password'] : "";
 
+    $email = isset($data['email']) ? $data['email'] : "";
+    $password = isset($data['password']) ? $data['password'] : "";
+
+    if($data['action'] == 'register') {
         if(registerUser($email, $password)) {
             $response = ['success' => true, 'message' => 'User registered successfully'];
         } else {
             $response = ['success' => false, 'message' => 'User registration failed'];
+        }
+    } else if($data['action'] == 'login') {
+        $user = getUserByEmail($email);
+
+        if($user && password_verify($password, $user['password'])) {
+
+            $response = [
+                'success' => true,
+                'message' => 'User logged in successfully',
+                'user' => [
+                    'guid' => $user['guid'],
+                    'email' => $user['email']
+                ]
+            ];
+        } else {
+            $response = ['success' => false, 'message' => 'Invalid credentials'];
         }
     }
 }

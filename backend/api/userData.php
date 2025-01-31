@@ -3,21 +3,9 @@
   array (
     0 => 
     array (
-      'guid' => 'f9cb078f-5f07-431f-b644-268eb3a8a1a0',
-      'email' => 'user@example.com',
-      'password' => '$2y$10$xZ.jkqPPdgj4cSvb7HDC6uvUJIRFdqiDOp5IYAszZWI6O5wGmEWcS',
-    ),
-    1 => 
-    array (
-      'guid' => 'f9cb078f-5f07-431f-b644-268eb3a8a1a0',
-      'email' => 'usedsasdr@example.com',
-      'password' => '$2y$10$xZ.jkqPPdgj4cSvb7HDC6uvUJIRFdqiDOp5IYAszZWI6O5wGmEWcS',
-    ),
-    2 => 
-    array (
-      'guid' => '2f9e5637-2f98-49df-805a-4e3821459dbc',
-      'email' => 'userdasdasd@example.com',
-      'password' => '$2y$10$OmiQKdSEGZB.baSDG/xJkuLDOzDvTPzLPlSJ8H4X5gAqQS4uhftse',
+      'guid' => '36d2430a-fae3-45b8-bfc1-ad4b9d46b559',
+      'email' => 'nuruddintipu.connect@gmail.com',
+      'password' => '$2y$10$7Kq7W4I8A9tyCPg1d3SyPeQisgtF/W7duZlYcwE9Dv3ojLrAi4TPy',
     ),
   ),
   'admin' => 
