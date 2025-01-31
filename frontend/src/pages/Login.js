@@ -1,27 +1,35 @@
 import {Button, Form} from "react-bootstrap";
 import {validateInput} from "../utils/validateInput";
 import {useEffect, useRef, useState} from "react";
-import {NamedLink} from "../routes/NamedLink";
+import {getRoutePath, NamedLink} from "../routes/NamedLink";
 import handleInputChange from "../utils/handleInputChange";
+import {loginUser} from "../services/loginUser";
+import {useNavigate} from "react-router-dom";
 
 function Login() {
     const userRef = useRef();
-
+    const navigate = useNavigate();
     const [user, setUser] = useState({email: "", password: ""});
     const [errors, setErrors] = useState({});
 
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const formErrors = validateInput(user, "login");
         if(Object.keys(formErrors).length > 0){
-            console.log(formErrors);
             setErrors(formErrors);
             return;
         }
-        console.log(user);
         setErrors({});
+
+        const result =await loginUser(user);
+        if(result.success){
+            localStorage.setItem("user", JSON.stringify(result.user));
+            navigate(getRoutePath("HOME"));
+        } else {
+            setErrors(result.message || "Something went wrong.");
+        }
     };
 
     useEffect(() => {
