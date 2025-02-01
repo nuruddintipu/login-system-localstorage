@@ -8,11 +8,11 @@ function generateGUID() {
 }
 
 
-function getUserByUuid($uuid) {
+function getUserByUuid($guid) {
     $users = include 'userData.php';
     $users = $users['users'];
     foreach ($users as $user) {
-        if ($user['uuid'] == $uuid) {
+        if ($user['guid'] == $guid) {
             return $user;
         }
     }
@@ -75,6 +75,32 @@ function deleteUser($guid) {
 
             return true;
         }
+    }
+    return false;
+}
+
+
+function changePassword($guid, $newPassword) {
+    $usersData = include 'userData.php';
+
+    if(!isset($usersData['users']) || !is_array($usersData['users'])) {
+        return false;
+    }
+
+    $isPasswordUpdated = false;
+
+    foreach($usersData['users'] as $key => $user) {
+        if($user['guid'] === $guid) {
+            $usersData['users'][$key]['password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+            $isPasswordUpdated = true;
+            break;
+        }
+    }
+
+    if($isPasswordUpdated) {
+        $newContent = '<?php return ' . var_export($usersData, true) . ';';
+        file_put_contents('userData.php', $newContent);
+        return true;
     }
     return false;
 }

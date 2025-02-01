@@ -1,7 +1,7 @@
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {deleteUser} from "../services/authRequest";
 import {getRoutePath} from "../routes/NamedLink";
+import {deleteUser} from "../services/deleteUser";
 
 const DeleteButton = () => {
     const navigate = useNavigate();

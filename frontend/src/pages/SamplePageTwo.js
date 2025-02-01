@@ -3,6 +3,7 @@ import {NamedLink} from "../routes/NamedLink";
 import LogoutButton from "../components/LogoutButton";
 import DeleteButton from "../components/DeleteButton";
 import PageTemplate from "../components/PageTemplate";
+import ChangePasswordButton from "../components/ChangePasswordButton";
 
 function SamplePageTwo() {
     return (
@@ -19,7 +20,7 @@ function SamplePageTwo() {
             <div className="justify-content-center d-flex">
                 <LogoutButton />
                 <DeleteButton />
-                <DeleteButton />
+                <ChangePasswordButton />
             </div>
         </PageTemplate>
     );

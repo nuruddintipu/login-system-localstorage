@@ -5,6 +5,7 @@ import SamplePageTwo from "../pages/SamplePageTwo";
 import SignUp from "../pages/SignUp";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
+import ChangePassword from "../pages/ChangePassword";
 
 
 
@@ -16,6 +17,7 @@ const routes = [
     { path: '/signup', element: <PublicRoute routeElement={<SignUp />} /> , routeName: 'SIGNUP'},
     { path: '/sample-page-one', element: <ProtectedRoute routeElement={<SamplePageOne />} />,   routeName: 'SAMPLE_PAGE_ONE' },
     { path: '/sample-page-two', element: <ProtectedRoute routeElement={<SamplePageTwo />}/> , routeName: 'SAMPLE_PAGE_TWO' },
+    { path: '/change-password', element: <ProtectedRoute routeElement={<ChangePassword />}/> , routeName: 'CHANGE_PASSWORD' },
 ];
 
 export default routes;
