@@ -3,8 +3,8 @@ import {validateInput} from "../utils/validateInput";
 import {useEffect, useRef, useState} from "react";
 import {getRoutePath, NamedLink} from "../routes/NamedLink";
 import handleInputChange from "../utils/handleInputChange";
-import {loginUser} from "../services/loginUser";
 import {useNavigate} from "react-router-dom";
+import {loginUser} from "../services/fetchApi";
 
 function Login() {
     const userRef = useRef();
