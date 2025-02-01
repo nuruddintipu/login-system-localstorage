@@ -51,6 +51,30 @@ if(isset($data['action'])) {
         } else {
             $response = ['success' => false, 'message' => 'User deletion failed'];
         }
+
+    } else if($data['action'] == 'changePassword') {
+
+        $guid = isset($data['guid']) ? $data['guid'] : "";
+        $currentPassword = isset($data['currentPassword']) ? $data['currentPassword'] : "";
+        $newPassword = isset($data['newPassword']) ? $data['newPassword'] : "";
+        $confirmPassword = isset($data['confirmPassword']) ? $data['confirmPassword'] : "";
+
+        $user = getUserByUuid($guid);
+        if(!$user){
+            $response = ['success' => false, 'message' => 'User not found. Please login again.'];
+        }else if(!password_verify($currentPassword, $user['password'])) {
+            $response = ['success' => false, 'message' => 'Current password is incorrect'];
+        }else if($newPassword != $confirmPassword) {
+            $response = ['success' => false, 'message' => 'New password and confirm password do not match'];
+        }else if($newPassword == $currentPassword) {
+            $response = ['success' => false, 'message' => 'New password cannot be same as current password'];
+        }else{
+            if(changePassword($guid, $newPassword)) {
+                $response = ['success' => true, 'message' => 'Password changed successfully'];
+            } else {
+                $response = ['success' => false, 'message' => 'Password change failed. Please try again'];
+            }
+        }
     }
 }
 echo json_encode($response);

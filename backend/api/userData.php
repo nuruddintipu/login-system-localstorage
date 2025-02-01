@@ -3,9 +3,9 @@
   array (
     0 => 
     array (
-      'guid' => '36d2430a-fae3-45b8-bfc1-ad4b9d46b559',
-      'email' => 'nuruddintipu.connect@gmail.com',
-      'password' => '$2y$10$7Kq7W4I8A9tyCPg1d3SyPeQisgtF/W7duZlYcwE9Dv3ojLrAi4TPy',
+      'guid' => '0b793f42-e0b0-4bbd-877d-d2556a6f5059',
+      'email' => 'user1@example.com',
+      'password' => '$2y$10$WUxI1kWTIZSBRygwUKyyBeXtQRlMc4iGWq5yhvjxxf.V8MApM1oRy',
     ),
   ),
   'admin' => 
