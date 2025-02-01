@@ -18,7 +18,7 @@ const DeleteButton = () => {
         }
     };
     return (
-        <Button variant = 'primary' onClick={handleDelete} className = 'mt-4 mx-4'>Delete User</Button>
+        <Button variant = 'primary' onClick={handleDelete} className = 'mt-4 mx-2' style={{fontSize: "0.8rem"}}>Delete User</Button>
     );
 };
 
