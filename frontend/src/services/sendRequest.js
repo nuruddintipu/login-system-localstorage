@@ -9,5 +9,4 @@ export const sendRequest = async (endpoint, method, body = null) => {
     return response.json();
 };
 
-export const signUpUser = async (formData) => sendRequest('register', formData);
 

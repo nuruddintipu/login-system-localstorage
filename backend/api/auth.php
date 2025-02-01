@@ -1,7 +1,6 @@
 <?php
-include '../utils/headers.php';
-
-include '../utils/approveOptionsMethod.php';
+require_once '../utils/headers.php';
+require_once '../utils/approveOptionsMethod.php';
 
 
 $data = json_decode(file_get_contents('php://input'), true);
