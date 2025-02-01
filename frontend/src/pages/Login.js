@@ -11,7 +11,7 @@ function Login() {
     const navigate = useNavigate();
     const [user, setUser] = useState({email: "", password: ""});
     const [errors, setErrors] = useState({});
-
+    const [responseMessage, setResponseMessage] = useState("");
 
 
     const handleSubmit = async (event) => {
@@ -28,7 +28,8 @@ function Login() {
             localStorage.setItem("user", JSON.stringify(result.user));
             navigate(getRoutePath("HOME"));
         } else {
-            setErrors(result.message || "Something went wrong.");
+            setResponseMessage(result.message || "Something went wrong.");
+            console.log(responseMessage);
         }
     };
 
@@ -38,13 +39,14 @@ function Login() {
 
     useEffect(() => {
         setErrors({});
+        setResponseMessage("");
     }, [user])
 
     return (
         <div className="login-wrapper">
             <div className="login-form-container">
                 <h2 className="login-title">Login</h2>
-
+                {responseMessage && <div className="alert alert-danger">{responseMessage}</div>}
                 <Form className="login-form" onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label column="lg">Email Address</Form.Label>
