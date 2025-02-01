@@ -4,8 +4,8 @@ import {useEffect, useRef, useState} from "react";
 import {getRoutePath, NamedLink} from "../routes/NamedLink";
 import handleInputChange from "../utils/handleInputChange";
 import {useNavigate} from "react-router-dom";
-import {loginUser} from "../services/authRequest";
 import PageTemplate from "../components/PageTemplate";
+import {loginUser} from "../services/loginUser";
 
 function Login() {
     const userRef = useRef();

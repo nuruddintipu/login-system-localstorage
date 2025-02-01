@@ -4,7 +4,7 @@ import handleInputChange from "../utils/handleInputChange";
 import { validateInput } from "../utils/validateInput";
 import {getRoutePath, NamedLink} from "../routes/NamedLink";
 import {useNavigate} from "react-router-dom";
-import {signUpUser} from "../services/authRequest";
+import {signUpUser} from "../services/sendRequest";
 import PageTemplate from "../components/PageTemplate";
 
 function SignUp() {
