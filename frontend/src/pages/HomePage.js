@@ -1,6 +1,7 @@
 import {Container} from "react-bootstrap";
 import {NamedLink} from "../routes/NamedLink";
 import LogoutButton from "../components/LogoutButton";
+import DeleteButton from "../components/DeleteButton";
 
 function HomePage() {
     return (
@@ -13,8 +14,7 @@ function HomePage() {
                 <NamedLink routeName='SAMPLE_PAGE_TWO'> Sample Page 2</NamedLink>
             </div>
             <LogoutButton />
-
-
+            <DeleteButton />
         </Container>
     );
 }

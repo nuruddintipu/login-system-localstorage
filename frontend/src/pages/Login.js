@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from "react";
 import {getRoutePath, NamedLink} from "../routes/NamedLink";
 import handleInputChange from "../utils/handleInputChange";
 import {useNavigate} from "react-router-dom";
-import {loginUser} from "../services/fetchApi";
+import {loginUser} from "../services/authRequest";
 
 function Login() {
     const userRef = useRef();
