@@ -15,7 +15,7 @@ export const validateInput = (formData, type = 'login') => {
 
     if(type === 'signup') {
         if(!PASSWORD_REGEX.test(formData.password)) {
-            errors.password = 'Password must be 8-16 characters, include uppercase, lowercase, number, and a special character (!@#$%)';
+            errors.password = 'Password must be 8-16 characters, include uppercase, lowercase, number, and a special character (@$!%*?&)';
             return errors;
         }
 
