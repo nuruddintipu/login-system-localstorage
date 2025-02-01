@@ -6,8 +6,10 @@ include '../utils/approveOptionsMethod.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-include 'userService.php';
-
+require_once '../utils/registerUser.php';
+require_once '../utils/getUserByEmail.php';
+require_once '../utils/getUserByGuid.php';
+require_once '../utils/deleteUser.php';
 $response =  ['success' => false, 'message' => 'Invalid request'];
 
 if(isset($data['action'])) {
@@ -20,22 +22,6 @@ if(isset($data['action'])) {
             $response = ['success' => true, 'message' => 'User registered successfully'];
         } else {
             $response = ['success' => false, 'message' => 'User registration failed'];
-        }
-    } else if($data['action'] == 'login') {
-        $user = getUserByEmail($email);
-
-        if($user && password_verify($password, $user['password'])) {
-
-            $response = [
-                'success' => true,
-                'message' => 'User logged in successfully',
-                'user' => [
-                    'guid' => $user['guid'],
-                    'email' => $user['email']
-                ]
-            ];
-        } else {
-            $response = ['success' => false, 'message' => 'Invalid credentials'];
         }
     } else if($data['action'] == 'delete') {
         $guid = isset($data['guid']) ? $data['guid'] : "";

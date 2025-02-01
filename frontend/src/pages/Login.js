@@ -24,14 +24,18 @@ function Login() {
         }
         setErrors({});
 
-        const result =await loginUser(user);
-        if(result.success){
-            localStorage.setItem("user", JSON.stringify(result.user));
-            navigate(getRoutePath("HOME"));
-        } else {
-            setResponseMessage(result.message || "Something went wrong.");
-            console.log(responseMessage);
-        }
+       try{
+           const result =await loginUser(user);
+           if(result.success){
+               localStorage.setItem("user", JSON.stringify(result.user));
+               navigate(getRoutePath("HOME"));
+           } else {
+               setResponseMessage(result.message || "Something went wrong.");
+               console.log(responseMessage);
+           }
+       } catch (error){
+           setResponseMessage(error.message);
+       }
     };
 
     useEffect(() => {
