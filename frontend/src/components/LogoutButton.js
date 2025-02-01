@@ -9,7 +9,7 @@ const LogoutButton = () => {
         navigate(getRoutePath('LOGIN'));
     };
     return (
-        <Button variant='primary' onClick={handleLogout} className='mt-4'>Logout</Button>
+        <Button variant='primary' style={{fontSize: "0.8rem"}} onClick={handleLogout} className='mt-4 mx-2'>Logout</Button>
     );
 };
 
