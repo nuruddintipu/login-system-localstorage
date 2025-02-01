@@ -43,6 +43,14 @@ if(isset($data['action'])) {
         } else {
             $response = ['success' => false, 'message' => 'Invalid credentials'];
         }
+    } else if($data['action'] == 'delete') {
+        $guid = isset($data['guid']) ? $data['guid'] : "";
+
+        if(deleteUser($guid)) {
+            $response = ['success' => true, 'message' => 'User deleted successfully'];
+        } else {
+            $response = ['success' => false, 'message' => 'User deletion failed'];
+        }
     }
 }
 echo json_encode($response);
