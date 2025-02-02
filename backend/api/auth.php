@@ -9,6 +9,7 @@ require_once '../utils/registerUser.php';
 require_once '../utils/getUserByEmail.php';
 require_once '../utils/getUserByGuid.php';
 require_once '../utils/deleteUser.php';
+require_once '../utils/updateUser.php';
 $response =  ['success' => false, 'message' => 'Invalid request'];
 
 if(isset($data['action'])) {
@@ -38,7 +39,7 @@ if(isset($data['action'])) {
         $newPassword = isset($data['newPassword']) ? $data['newPassword'] : "";
         $confirmPassword = isset($data['confirmPassword']) ? $data['confirmPassword'] : "";
 
-        $user = getUserByUuid($guid);
+        $user = getUserByGuid($guid);
         if(!$user){
             $response = ['success' => false, 'message' => 'User not found. Please login again.'];
         }else if(!password_verify($currentPassword, $user['password'])) {
@@ -48,7 +49,7 @@ if(isset($data['action'])) {
         }else if($newPassword == $currentPassword) {
             $response = ['success' => false, 'message' => 'New password cannot be same as current password'];
         }else{
-            if(changePassword($guid, $newPassword)) {
+            if(updateUser($guid,'password', $newPassword)) {
                 $response = ['success' => true, 'message' => 'Password changed successfully'];
             } else {
                 $response = ['success' => false, 'message' => 'Password change failed. Please try again'];

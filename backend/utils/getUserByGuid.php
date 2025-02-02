@@ -1,5 +1,5 @@
 <?php
-function getUserByUuid($guid) {
+function getUserByGuid($guid) {
     $users = include '../api/userData.php';
     $users = $users['users'];
     foreach ($users as $user) {
