@@ -18,9 +18,10 @@ function changePassword($guid, $newPassword) {
     }
 
     if($isPasswordUpdated) {
-        $newContent = '<?php return ' . var_export($usersData, true) . ';';
+        $newContent = '<?php return  ' . var_export($usersData, true) . ';' . PHP_EOL;
         file_put_contents('userData.php', $newContent);
         return true;
+
     }
     return false;
 }

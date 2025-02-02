@@ -23,15 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'PUT'){
     }
 
     if (isset($request['type'])) {
-        if ($request['type'] == 'email') {
-            if (password_verify($currentPassword, $user['password'])) {
-                $response = updateUser($guid, 'email', $email)
-                    ? ['success' => true, 'message' => 'Email updated successfully']
-                    : ['success' => false, 'message' => 'Email update failed'];
-            } else {
-                $response = ['success' => false, 'message' => 'Current password is incorrect'];
-            }
-        } elseif ($request['type'] == 'password') {
+        if ($request['type'] == 'password') {
             $newPassword = trim(isset($request['newPassword']) ? $request['newPassword'] : '');
             $confirmPassword = trim(isset($request['confirmPassword']) ? $request['confirmPassword'] : '');
 

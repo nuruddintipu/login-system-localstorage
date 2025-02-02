@@ -17,7 +17,7 @@ function updateUser($guid, $keyToUpdate, $updatedValue){
         }
     }
     if($isUserUpdated){
-        $newUser = '<?php return' . var_export($usersData, true) . ';';
+        $newUser = '<?php return ' . var_export($usersData, true) . ';';
         file_put_contents('../api/userData.php', $newUser);
         return true;
     }
