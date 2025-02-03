@@ -1,24 +1,15 @@
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {getRoutePath} from "../routes/NamedLink";
-import {deleteUser} from "../services/deleteUser";
 
 const DeleteButton = () => {
     const navigate = useNavigate();
 
-    const handleDelete = async () => {
-        const user = localStorage.getItem('user');
-        const response = await deleteUser(user);
-
-        if(response.success){
-            localStorage.removeItem('user');
-            navigate(getRoutePath('LOGIN'));
-        } else{
-            alert(response.message);
-        }
+    const navigateToDeletePage = () => {
+        navigate(getRoutePath('DELETE_ACCOUNT'));
     };
     return (
-        <Button variant = 'primary' onClick={handleDelete} className = 'mt-4 mx-2' style={{fontSize: "0.8rem"}}>Delete User</Button>
+        <Button variant = 'primary' onClick={navigateToDeletePage} className = 'mt-4 mx-2' style={{fontSize: "0.8rem"}}>Delete User</Button>
     );
 };
 
