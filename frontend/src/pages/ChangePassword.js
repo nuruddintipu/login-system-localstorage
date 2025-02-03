@@ -13,7 +13,6 @@ const ChangePassword = () => {
         event.preventDefault();
 
         const user = JSON.parse(localStorage.getItem("user"));
-        console.log(password, confirmPassword);
 
         const apiResponse = await updatePassword(user, currentPassword, password, confirmPassword);
         setResponseMessage(apiResponse.message);
