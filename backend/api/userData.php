@@ -9,9 +9,9 @@
     ),
     1 => 
     array (
-      'guid' => 'a4d6c5d2-8b85-4775-9eab-00e52369cbae',
+      'guid' => '3d12b088-086f-4340-b065-29517c43d1bb',
       'email' => 'user1@example.com',
-      'password' => '$2y$10$mn53e7vt5mOJT8qiIySQq.lNXf6gbJo79vilhGo3MbhN721SN5gAm',
+      'password' => '$2y$10$2VFq7RdWOqnAPp8y6iYBoeQKVJnw/PODY.rZ/1hLQYro0xoZWeAP.',
     ),
   ),
   'admin' => 
