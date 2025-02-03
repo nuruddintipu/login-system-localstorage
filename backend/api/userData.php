@@ -3,9 +3,15 @@
   array (
     0 => 
     array (
-      'guid' => '0b793f42-e0b0-4bbd-877d-d2556a6f5059',
+      'guid' => 'b62df48a-3e8b-47b4-abed-5217d4a1b525',
+      'email' => 'nuruddintipu.connect@gmail.com',
+      'password' => '$2y$10$w8BiViS8UDj1B0x0iDisHua/Eg..y1T0Htfdb0JyVg4fAlxXekaMm',
+    ),
+    1 => 
+    array (
+      'guid' => '3d12b088-086f-4340-b065-29517c43d1bb',
       'email' => 'user1@example.com',
-      'password' => '$2y$10$WUxI1kWTIZSBRygwUKyyBeXtQRlMc4iGWq5yhvjxxf.V8MApM1oRy',
+      'password' => '$2y$10$2VFq7RdWOqnAPp8y6iYBoeQKVJnw/PODY.rZ/1hLQYro0xoZWeAP.',
     ),
   ),
   'admin' => 

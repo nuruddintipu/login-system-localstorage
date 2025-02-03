@@ -7,6 +7,7 @@ This project is a simple authentication system built using **React** for the fro
 - User Registration
 - User Login with Password Verification
 - GUID-based User Identification
+- CRUD (Create, Read, Update, Delete) operations for user management.
 - LocalStorage-based State Management
 - CORS-enabled Backend
 
@@ -30,7 +31,7 @@ This project is a simple authentication system built using **React** for the fro
    ```sh
    composer install
    ```
-3. Start a local PHP server (optional):
+3. Start a local PHP server:
    ```sh
    php -S localhost:8000 -t backend/
    ```
@@ -46,45 +47,6 @@ This project is a simple authentication system built using **React** for the fro
    npm start
    ```
 
-## API Endpoints
-### Authentication API (`auth.php`)
-- **POST `api/auth.php`** (Handles user authentication)
-    - Request Body:
-      ```json
-      {
-        "action": "register",
-        "email": "user@example.com",
-        "password": "securepassword"
-      }
-      ```
-    - Response:
-      ```json
-      {
-        "success": true,
-        "message": "User registered successfully"
-      }
-      ```
-
-    - Request for login:
-      ```json
-      {
-        "action": "login",
-        "email": "user@example.com",
-        "password": "securepassword"
-      }
-      ```
-    - Response:
-      ```json
-      {
-        "success": true,
-        "message": "User logged in successfully",
-        "user": {
-          "guid": "some-guid-value",
-          "email": "user@example.com"
-        }
-      }
-      ```
-
 ## Security Considerations
 - **Password Hashing**: User passwords are stored using `password_hash()` for security.
 - **CORS Handling**: Allowed only for `http://localhost:3000` for local development.
@@ -93,7 +55,6 @@ This project is a simple authentication system built using **React** for the fro
 ## Future Improvements
 - Migrate from JSON-based storage to a database (MySQL or SQLite).
 - Implement JWT-based authentication for better security.
-- Adding Update and Delete functionality.
 
 ---
 **Author:** Nuruddin Tipu  

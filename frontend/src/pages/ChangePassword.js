@@ -1,7 +1,7 @@
 import PageTemplate from "../components/PageTemplate";
 import {Button, Form} from "react-bootstrap";
 import {useEffect, useState} from "react";
-import {changePasswordService} from "../services/changePasswordService";
+import {updatePassword} from "../services/updatePassword";
 
 const ChangePassword = () => {
     const [currentPassword, setCurrentPassword] = useState("");
@@ -13,9 +13,8 @@ const ChangePassword = () => {
         event.preventDefault();
 
         const user = JSON.parse(localStorage.getItem("user"));
-        console.log(password, confirmPassword);
 
-        const apiResponse = await changePasswordService(user, currentPassword, password, confirmPassword);
+        const apiResponse = await updatePassword(user, currentPassword, password, confirmPassword);
         setResponseMessage(apiResponse.message);
     }
 
