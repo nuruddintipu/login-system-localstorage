@@ -31,7 +31,7 @@ This project is a simple authentication system built using **React** for the fro
    ```sh
    composer install
    ```
-3. Start a local PHP server (optional):
+3. Start a local PHP server:
    ```sh
    php -S localhost:8000 -t backend/
    ```
