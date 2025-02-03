@@ -1,10 +1,23 @@
+import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { getRoutePath } from "./NamedLink";
 import isAuthenticated from "../utils/authenticateUser";
-import {Navigate} from "react-router-dom";
-import {getRoutePath} from "./NamedLink";
 
-const PublicRoute = ({ routeElement}) => {
+const PublicRoute = ({ routeElement }) => {
+    const [isAuth, setIsAuth] = useState(null);
+    useEffect(() => {
+        const checkAuth = async () => {
+            const authStatus = await isAuthenticated();
+            setIsAuth(authStatus);
+        };
+        checkAuth();
+    }, []);
 
-    return !isAuthenticated() ? routeElement : <Navigate to={getRoutePath('HOME')} />;
-}
+    if (isAuth === null) {
+        return <div>Loading...</div>;
+    }
+
+    return !isAuth ? routeElement : <Navigate to={getRoutePath('HOME')} />;
+};
 
 export default PublicRoute;
